@@ -1040,14 +1040,19 @@ var _root = __webpack_require__(40);
 
 var _root2 = _interopRequireDefault(_root);
 
-var _api_util = __webpack_require__(41);
+var _book_actions = __webpack_require__(53);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.fetchSearchBooks = _api_util.fetchSearchBooks;
+window.fetchSearchBooks = _book_actions.fetchSearchBooks;
+// import { fetchSearchBooks } from './util/api_util.js';
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var store = (0, _store2.default)();
+
+  window.store = store;
+
   var root = document.getElementById('root');
   _store2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
@@ -3231,8 +3236,6 @@ exports.default = (0, _redux.combineReducers)({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-
 var gbooksApiKey = 'AIzaSyBxaRTX5hvsZ-bv0mKF1AcfqwFoE-E08JE';
 
 var fetchSearchBooks = exports.fetchSearchBooks = function fetchSearchBooks(query) {
@@ -3286,6 +3289,34 @@ exports.default = booksReducer;
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.receiveSearchBooks = exports.fetchSearchBooks = exports.RECEIVE_SEARCH_RESULTS = undefined;
+
+var _api_util = __webpack_require__(41);
+
+var APIUtil = _interopRequireWildcard(_api_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_SEARCH_RESULTS = exports.RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
+
+var fetchSearchBooks = exports.fetchSearchBooks = function fetchSearchBooks(query) {
+  return function (dispatch) {
+    APIUtil.fetchSearchBooks(query).then(function (books) {
+      return dispatch(receiveSearchBooks(books.items));
+    });
+  };
+};
+
+var receiveSearchBooks = exports.receiveSearchBooks = function receiveSearchBooks(books) {
+  return {
+    type: RECEIVE_SEARCH_RESULTS,
+    books: books
+  };
+};
 
 /***/ })
 /******/ ]);
