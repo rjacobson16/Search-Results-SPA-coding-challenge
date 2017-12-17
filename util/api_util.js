@@ -1,9 +1,12 @@
-const apiKey = '2jbxm6t599emuaxenmunpqbk';
 
-export const fetchSearchProducts = query => (
-  axios.get(`http://api.walmartlabs.com/v1/search?apiKey=${apiKey}&query=${query}`)
+
+const gbooksApiKey = 'AIzaSyBxaRTX5hvsZ-bv0mKF1AcfqwFoE-E08JE';
+
+
+export const fetchSearchBooks = query => (
+  axios.get(`https://www.googleapis.com/books/v1/volumes?q=f${query}&key=${gbooksApiKey}`)
     .then(response => (
-      response.items
+      response.data
     ))
     .catch(err =>(
       console.log(err)

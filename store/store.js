@@ -7,4 +7,4 @@ const configureStore = () => {
   return createStore(RootReducer, applyMiddleware(thunk, logger));
 };
 
-export default configureStore();
+export default configureStore;
