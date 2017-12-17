@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Open+Sans');
+
+
+.book_index_item{
+  display: flex;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  padding: 12px;
+  box-shadow:
+  0 2px 2px 0 rgba(0,0,0,0.16),
+  0 0 0 1px rgba(0,0,0,0.08);
+}
+
+.book_info{
+  margin: 0 20px;
+}
+
+.book_cover{
+  border-radius: 3px;
+}
+
+#search_container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+#search_input_container{
+  display: flex;
+}
+
+#search{
+  height: 20px;
+  padding: 6px;
+  margin-left: 35%;
+  margin-right: 5px;
+  width: 30%;
+
+}
+
+#results_container{
+  display: flex;
+  margin-top: 2%;
+}
+
+#filter_place_holder{
+  width: 240px;
+  height: 900px;
+  background-color: #E8E8E8;
+  margin-left: 1%;
+  border-radius: 2px;
+}
+
+#submit {
+  background-color: none;
+  border: none;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  margin: 20px;
+  font-size: 24px;
+}
+
+ul {
+  width: 100%;
+  margin: 0 5%;
+}
