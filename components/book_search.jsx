@@ -25,7 +25,7 @@ class BookSearch extends React.Component {
 
     return (
         <div id='search_container'>
-          <h1 id='title'>Google Book Search</h1>
+          <h1 id='title'>Google Books Search</h1>
           <div id='search_input_container'>
             <input type="text"
               id='search'

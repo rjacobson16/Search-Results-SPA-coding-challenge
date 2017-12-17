@@ -1979,8 +1979,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 document.addEventListener('DOMContentLoaded', function () {
   var store = (0, _store2.default)();
-  window.store = store;
-  window.fetchSearchBooks = _book_actions.fetchSearchBooks;
+
   var root = document.getElementById('root');
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
@@ -21476,7 +21475,7 @@ var BookSearch = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           { id: 'title' },
-          'Google Book Search'
+          'Google Books Search'
         ),
         _react2.default.createElement(
           'div',
