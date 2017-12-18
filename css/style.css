@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Nunito|Open+Sans|Gentium+Book+Basic');
 
 
 .book_index_item{
+  min-height: 200px;
   display: flex;
   border-radius: 2px;
   margin-bottom: 10px;
@@ -13,11 +14,53 @@
 }
 
 .book_info{
+  display: flex;
   margin: 0 20px;
+  max-width: 100%;
+}
+
+.book_description_container{
+  max-width: 30%;
+  height: 200px;
+  position: absolute;
+  right: 20px;
+  margin-left: 12px;
+  overflow: scroll;
+  text-align: left;
+}
+
+.book_description {
+  font-size: 16px;
+  font-family: 'Times New Roman', serif;
+}
+
+.book_data  h4{
+  margin-bottom: 10px;
+
+}
+
+.book_data  {
+  display: flex;
+  flex-direction: column;
+  /*min-width: 40%;
+  */
 }
 
 .book_cover{
   border-radius: 3px;
+  object-fit: none;
+
+}
+
+.book_title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  width: 60%;
+}
+
+#no_result{
+  margin-left: 500px;
+  color: gray;
 }
 
 #search_container{
@@ -59,7 +102,7 @@
 
 #filter_place_holder{
   width: 240px;
-  height: 900px;
+  min-height: 600px;
   background-color: #E8E8E8;
   margin-left: 1%;
   border-radius: 2px;

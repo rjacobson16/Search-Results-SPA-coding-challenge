@@ -30535,7 +30535,7 @@ function BookIndex(_ref) {
   if (pageCount == 0) {
     return _react2.default.createElement(
       'h2',
-      { className: 'no_result' },
+      { id: 'no_result' },
       'Sorry, no results'
     );
   }
@@ -30582,20 +30582,36 @@ function BookIndexItem(_ref) {
       "div",
       { className: "book_info" },
       _react2.default.createElement(
-        "h3",
-        { className: "book_title" },
-        volumeInfo.title
+        "div",
+        { className: "book_data" },
+        _react2.default.createElement(
+          "h2",
+          { className: "book_title" },
+          volumeInfo.title
+        ),
+        _react2.default.createElement(
+          "h4",
+          { className: "author" },
+          "Author: ",
+          volumeInfo.authors ? book.volumeInfo.authors[0] : ''
+        ),
+        _react2.default.createElement(
+          "h4",
+          { className: "rating" },
+          "Average Rating: ",
+          volumeInfo.averageRating
+        )
       ),
       _react2.default.createElement(
-        "h4",
-        { className: "rating" },
-        "Average Rating: ",
-        volumeInfo.averageRating
-      ),
-      _react2.default.createElement(
-        "h4",
-        { className: "author" },
-        volumeInfo.authors ? book.volumeInfo.authors[0] : ''
+        "div",
+        { className: "book_description_container" },
+        volumeInfo.description ? _react2.default.createElement(
+          "p",
+          { className: "book_description" },
+          "\"",
+          volumeInfo.description,
+          "\""
+        ) : null
       )
     )
   );
