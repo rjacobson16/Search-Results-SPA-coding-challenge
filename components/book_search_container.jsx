@@ -3,7 +3,8 @@ import BookSearch from './book_search';
 import { fetchSearchBooks } from '../actions/book_actions';
 
 const mapStateToProps = state => ({
-  books: state.books
+  books: state.books,
+  pageCount: state.pagination.pageCount
 });
 
 const mapDispatchToProps = dispatch => {
