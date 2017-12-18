@@ -1,7 +1,7 @@
 const gbooksApiKey = 'AIzaSyBxaRTX5hvsZ-bv0mKF1AcfqwFoE-E08JE';
 
 
-export const buildQuery = options => {
+export const buildQuery = (options, language) => {
   let url = URI("https://www.googleapis.com/books/v1/volumes?");
 
   if (options.searchTerm.length > 0) {
@@ -10,6 +10,10 @@ export const buildQuery = options => {
 
   if (options.startIndex.length > 0) {
     url.addSearch({startIndex: options.startIndex});
+  }
+
+  if(language) {
+    url.addSearch({langRestrict: language});
   }
 
   url.addSearch({key: gbooksApiKey});
