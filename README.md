@@ -33,3 +33,7 @@ Given more time, I would use media queries for a completely mobile-friendly UI.
 if I were to deploy to production, I would implement a simple backend in order to protect my Google Books API key
 
 * Testing: No unit tests. Given more time, I would write tests with Jest. 
+
+## Wireframe
+
+![wf](https://user-images.githubusercontent.com/26705787/34119059-a3ef3e9a-e3d5-11e7-94f6-ef63c4e8cfce.png)
