@@ -29,18 +29,24 @@ class BookSearch extends React.Component {
   }
 
   handlePageClick(data) {
+    let page = document.getElementById('search_container');
+    console.log(page.scrollTop);
+
     let selected = data.selected + 1;
     let startIndex = ((selected * 10) - 10).toString();
 
     this.setState({ startIndex: startIndex }, () => {
       this.props.fetchSearchBooks(buildQuery(this.state));
     });
+
+
+    page.scrollTo(0,0);
+    console.log(page.scrollTop);
   }
 
   render() {
     let books = this.props.books;
     let pageCount = this.props.pageCount;
-
     return (
         <div id='search_container'>
           <h1 id='title'>Google Books Search</h1>

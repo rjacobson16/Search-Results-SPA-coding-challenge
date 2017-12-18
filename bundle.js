@@ -30433,19 +30433,24 @@ var BookSearch = function (_React$Component) {
     value: function handlePageClick(data) {
       var _this2 = this;
 
+      var page = document.getElementById('search_container');
+      console.log(page.scrollTop);
+
       var selected = data.selected + 1;
       var startIndex = (selected * 10 - 10).toString();
 
       this.setState({ startIndex: startIndex }, function () {
         _this2.props.fetchSearchBooks((0, _api_util.buildQuery)(_this2.state));
       });
+
+      page.scrollTo(0, 0);
+      console.log(page.scrollTop);
     }
   }, {
     key: 'render',
     value: function render() {
       var books = this.props.books;
       var pageCount = this.props.pageCount;
-
       return _react2.default.createElement(
         'div',
         { id: 'search_container' },
@@ -30548,6 +30553,29 @@ function BookIndex(_ref) {
     })
   );
 }
+
+// class BookIndex extends React.Component{
+//   constructor(props){
+//     super(props);
+//   }
+//
+//   componentDidUpdate(){
+//     console.log('hi');
+//     let page = document.getElementById('search_container');
+//     page.scrollTo(0,0);
+//     console.log(page.scrollTop);
+//   }
+//
+//   render(){
+//     let books = this.props.books;
+//     return(
+//       <ul>
+//         {books.map(book => <BookIndexItem key={book.id} book={book}/>)}
+//       </ul>
+//     );
+//   }
+// }
+
 
 exports.default = BookIndex;
 
