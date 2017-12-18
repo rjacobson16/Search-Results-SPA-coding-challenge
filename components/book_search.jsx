@@ -1,5 +1,10 @@
 import React from 'react';
+import ReactPaginate from 'react-paginate';
+
 import BookIndex from './book_index';
+
+import { buildQuery } from '../util/api_util';
+
 
 class BookSearch extends React.Component {
   constructor(props){
@@ -7,8 +12,11 @@ class BookSearch extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { searchTerm: "" };
+    this.handlePageClick = this.handlePageClick.bind(this);
+
+    this.state = { searchTerm: "", startIndex: "" };
   }
+
 
   handleChange(e){
     this.setState({ searchTerm: e.currentTarget.value});
@@ -16,12 +24,22 @@ class BookSearch extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    let searchTerm = this.state.searchTerm.split(' ').join('+');
-    this.props.fetchSearchBooks(searchTerm);
+    this.setState({ startIndex: ""});
+    this.props.fetchSearchBooks(buildQuery(this.state));
+  }
+
+  handlePageClick(data) {
+    let selected = data.selected + 1;
+    let startIndex = ((selected * 10) - 10).toString();
+
+    this.setState({ startIndex: startIndex }, () => {
+      this.props.fetchSearchBooks(buildQuery(this.state));
+    });
   }
 
   render() {
     let books = this.props.books;
+    let pageCount = this.props.pageCount;
 
     return (
         <div id='search_container'>
@@ -36,9 +54,25 @@ class BookSearch extends React.Component {
               </button>
           </div>
 
-          <div id='results_container'>
+          <div id='main_container'>
             <div id='filter_place_holder'/>
-            <BookIndex books={books} />
+            <div id='results_container'>
+              <BookIndex books={books} pageCount={pageCount} />
+
+              {this.props.books.length < 1 ? null : <ReactPaginate
+                      previousLabel={"previous"}
+                      nextLabel={"next"}
+                      breakLabel={<a href="">...</a>}
+                      breakClassName={"break-me"}
+                      pageCount={this.props.pageCount}
+                      marginPagesDisplayed={2}
+                      pageRangeDisplayed={5}
+                      onPageChange={this.handlePageClick}
+                      containerClassName={"pagination"}
+                      subContainerClassName={"pages pagination"}
+                      activeClassName={"active"} />
+                }
+            </div>
           </div>
 
         </div>
