@@ -24,7 +24,7 @@
   height: 200px;
   position: absolute;
   right: 20px;
-  margin-left: 12px;
+  margin-left: 18px;
   overflow: scroll;
   text-align: left;
 }
@@ -58,6 +58,11 @@
   width: 60%;
 }
 
+.lang_radio {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
 #no_result{
   margin-left: 500px;
   color: gray;
@@ -69,7 +74,8 @@
   left: 0;
   bottom: 0;
   right: 0;
-  overflow: auto;
+  overflow: scroll;
+  overflow-x: hidden;
   font-family: 'Open Sans', sans-serif;
 
 }
@@ -91,6 +97,7 @@
 #main_container{
   display: flex;
   margin-top: 2%;
+
 }
 
 #results_container{
@@ -100,12 +107,19 @@
   margin-right: 5%;
 }
 
-#filter_place_holder{
+#filter{
+  padding: 12px;
   width: 240px;
-  min-height: 600px;
+  height: 150px;
   background-color: #E8E8E8;
   margin-left: 1%;
   border-radius: 2px;
+}
+
+#language {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 #submit {
@@ -129,6 +143,7 @@ ul {
 
 .pagination {
     margin-left: 30%;
+    margin-bottom: 10%;
 }
 .pagination ul {
 
@@ -141,14 +156,16 @@ ul {
     display: inline-block;
     float: left;
     padding: 8px 16px;
+    cursor: pointer;
 }
 
 .pagination .active {
   border: 1px solid black;
+  cursor: pointer;
 }
 
 .pagination .break a {
-   cursor: default;
+   cursor: pointer;
    color: black;
 
    text-decoration: none
