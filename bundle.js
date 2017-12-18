@@ -30554,29 +30554,6 @@ function BookIndex(_ref) {
   );
 }
 
-// class BookIndex extends React.Component{
-//   constructor(props){
-//     super(props);
-//   }
-//
-//   componentDidUpdate(){
-//     console.log('hi');
-//     let page = document.getElementById('search_container');
-//     page.scrollTo(0,0);
-//     console.log(page.scrollTop);
-//   }
-//
-//   render(){
-//     let books = this.props.books;
-//     return(
-//       <ul>
-//         {books.map(book => <BookIndexItem key={book.id} book={book}/>)}
-//       </ul>
-//     );
-//   }
-// }
-
-
 exports.default = BookIndex;
 
 /***/ }),
